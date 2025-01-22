@@ -22,4 +22,9 @@ public class ProductController {
     public ResponseEntity<List<ProductResponse>> getProducts(@RequestParam String date) {
         return productService.getProducts(date);
     }
+
+    @GetMapping("/top5")
+    public ResponseEntity<List<ProductResponse>> getTop5Products() {
+        return productService.getTop5Products();
+    }
 }

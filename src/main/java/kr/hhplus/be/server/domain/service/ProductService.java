@@ -25,4 +25,21 @@ public class ProductService {
                         .build()
         ));
     }
+
+    public ResponseEntity<List<ProductResponse>> getTop5Products() {
+        return ResponseEntity.ok(List.of(
+                ProductResponse.builder()
+                        .id(1L)
+                        .name("상품1")
+                        .price(1000)
+                        .stock(10)
+                        .build(),
+                ProductResponse.builder()
+                        .id(2L)
+                        .name("상품2")
+                        .price(2000)
+                        .stock(20)
+                        .build()
+        ));
+    }
 }
