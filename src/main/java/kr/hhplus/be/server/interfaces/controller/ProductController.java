@@ -1,5 +1,6 @@
 package kr.hhplus.be.server.interfaces.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import kr.hhplus.be.server.domain.service.ProductService;
 import kr.hhplus.be.server.interfaces.dto.response.ProductResponse;
 import lombok.RequiredArgsConstructor;
@@ -19,11 +20,13 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("")
+    @Operation(summary = "getProducts", description = "상품 목록 조회")
     public ResponseEntity<List<ProductResponse>> getProducts(@RequestParam String date) {
         return productService.getProducts(date);
     }
 
     @GetMapping("/top5")
+    @Operation(summary = "getTop5Products", description = "인기 상품 목록 조회")
     public ResponseEntity<List<ProductResponse>> getTop5Products() {
         return productService.getTop5Products();
     }

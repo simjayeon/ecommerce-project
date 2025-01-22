@@ -48,6 +48,11 @@ dependencies {
     // Lombok
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
+
+	// Swagger
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.3")
+	implementation("org.springdoc:springdoc-openapi-ui:1.7.0")
+
 }
 
 tasks.withType<Test> {
