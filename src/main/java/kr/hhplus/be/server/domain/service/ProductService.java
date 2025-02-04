@@ -1,7 +1,7 @@
 package kr.hhplus.be.server.domain.service;
 
 import kr.hhplus.be.server.domain.entity.Product;
-import kr.hhplus.be.server.domain.repository.IProductRepository;
+import kr.hhplus.be.server.infra.repository.ProductRepositoryImpl;
 import kr.hhplus.be.server.interfaces.dto.response.ProductResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductService {
 
-    private final IProductRepository productRepository;
+    private final ProductRepositoryImpl productRepository;
 
     public ResponseEntity<List<ProductResponse>> getProducts() {
         List<Product> products = productRepository.findAllByStockGreaterThan(0);
