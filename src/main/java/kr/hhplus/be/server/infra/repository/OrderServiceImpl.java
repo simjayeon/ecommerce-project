@@ -1,5 +1,6 @@
 package kr.hhplus.be.server.infra.repository;
 
+import jakarta.persistence.EntityNotFoundException;
 import kr.hhplus.be.server.domain.entity.Order;
 import kr.hhplus.be.server.infra.service.OrderService;
 import kr.hhplus.be.server.infra.jpa.OrderRepository;
@@ -34,8 +35,7 @@ public class OrderServiceImpl implements OrderService {
 
             return OrderResponse.of(order.get(), productResponses);
         } else {
-//            throw new OrderNotFoundException("Order not found with ID: " + orderId);
-            return null;
+            throw new EntityNotFoundException("Order not found with ID: " + orderId);
         }
     }
 }
