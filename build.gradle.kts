@@ -34,6 +34,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("com.h2database:h2")
 
     // Querydsl
     implementation("com.querydsl:querydsl-jpa:5.0.0:jakarta")

@@ -1,7 +1,11 @@
 package kr.hhplus.be.server.domain.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.*;
+
+import java.sql.Timestamp;
+import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
@@ -9,8 +13,8 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "product")
-public class Product extends BaseEntity {
+@Table(name = "user")
+public class User extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,9 +24,11 @@ public class Product extends BaseEntity {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "price")
-    private Integer price;
+    @Email
+    @Column(name = "email")
+    private String email;
 
-    @Column(name = "stock")
-    private Integer stock;
+    @Column(name = "password")
+    private String password;
+
 }
