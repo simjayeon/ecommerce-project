@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -22,20 +21,16 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private final OrderRepository orderRepository;
 
-    @Transactional
+    @Transactional(readOnly = true)
     @Override
     public OrderResponse findOrderItemsByOrderId(Long userId, Long orderId) {
-        Optional<Order> order = orderRepository.findOrderWithUserAndItemsAndProduct(orderId);
+        Order order = orderRepository.findOrderWithUserAndItemsAndProduct(userId, orderId)
+                .orElseThrow(() -> new EntityNotFoundException("Order not found with ID and User ID: " + orderId + "/" + userId));
 
-        if (order.isPresent()) {
-            List<ProductResponse> productResponses = order.get().getOrderItems()
-                    .stream()
-                    .map(orderItem -> ProductResponse.of(orderItem.getProduct()))
-                    .collect(Collectors.toList());
+        List<ProductResponse> productResponses = order.getOrderItems().stream()
+                .map(orderItem -> ProductResponse.of(orderItem.getProduct()))
+                .collect(Collectors.toList());
 
-            return OrderResponse.of(order.get(), productResponses);
-        } else {
-            throw new EntityNotFoundException("Order not found with ID: " + orderId);
-        }
+        return OrderResponse.of(order, productResponses);
     }
 }
