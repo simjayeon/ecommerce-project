@@ -1,9 +1,8 @@
-package kr.hhplus.be.server.infra.repository;
+package kr.hhplus.be.server.infra.service;
 
 import jakarta.validation.Valid;
 import kr.hhplus.be.server.domain.entity.User;
-import kr.hhplus.be.server.infra.jpa.UserRepository;
-import kr.hhplus.be.server.infra.service.UserService;
+import kr.hhplus.be.server.infra.repository.UserRepository;
 import kr.hhplus.be.server.interfaces.dto.request.SignupRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.support.DefaultMessageSourceResolvable;

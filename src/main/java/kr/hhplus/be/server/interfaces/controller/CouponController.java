@@ -31,8 +31,8 @@ public class CouponController {
 
     @PostMapping("")
     @Operation(summary = "createCoupon", description = "쿠폰 생성")
-    public ResponseEntity<Boolean> createCoupon(@RequestBody CouponRequest req) {
-        return couponService.createCoupon(req);
+    public ResponseEntity<Boolean> createCoupon(@RequestBody CouponRequest couponRequest) {
+        return couponService.createCoupon(couponRequest);
     }
 
 }

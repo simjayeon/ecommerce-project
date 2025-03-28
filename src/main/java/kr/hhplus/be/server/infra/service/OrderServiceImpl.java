@@ -1,13 +1,11 @@
-package kr.hhplus.be.server.infra.repository;
+package kr.hhplus.be.server.infra.service;
 
 import jakarta.persistence.EntityNotFoundException;
 import kr.hhplus.be.server.domain.entity.Order;
-import kr.hhplus.be.server.infra.service.OrderService;
-import kr.hhplus.be.server.infra.jpa.OrderRepository;
+import kr.hhplus.be.server.infra.repository.OrderRepository;
 import kr.hhplus.be.server.interfaces.dto.response.OrderResponse;
 import kr.hhplus.be.server.interfaces.dto.response.ProductResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

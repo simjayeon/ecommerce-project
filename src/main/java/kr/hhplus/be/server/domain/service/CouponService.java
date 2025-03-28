@@ -35,7 +35,7 @@ public class CouponService {
         ));
     }
 
-    public ResponseEntity<Boolean> createCoupon(CouponRequest req) {
+    public ResponseEntity<Boolean> createCoupon(CouponRequest couponRequest) {
         return ResponseEntity.ok(true);
     }
 

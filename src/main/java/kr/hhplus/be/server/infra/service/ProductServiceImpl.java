@@ -1,7 +1,6 @@
-package kr.hhplus.be.server.infra.repository;
+package kr.hhplus.be.server.infra.service;
 
-import kr.hhplus.be.server.infra.service.ProductService;
-import kr.hhplus.be.server.infra.jpa.ProductRepository;
+import kr.hhplus.be.server.infra.repository.ProductRepository;
 import kr.hhplus.be.server.interfaces.dto.response.ProductResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
