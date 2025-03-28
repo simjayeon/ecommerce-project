@@ -18,11 +18,9 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
-    @Autowired
     private final OrderRepository orderRepository;
 
     @Transactional(readOnly = true)
-    @Override
     public OrderResponse findOrderItemsByOrderId(Long userId, Long orderId) {
         Order order = orderRepository.findOrderWithUserAndItemsAndProduct(userId, orderId)
                 .orElseThrow(() -> new EntityNotFoundException("Order not found with ID and User ID: " + orderId + "/" + userId));

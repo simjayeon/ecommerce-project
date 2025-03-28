@@ -4,7 +4,6 @@ import kr.hhplus.be.server.infra.service.ProductService;
 import kr.hhplus.be.server.infra.jpa.ProductRepository;
 import kr.hhplus.be.server.interfaces.dto.response.ProductResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +14,6 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
-    @Autowired
     private final ProductRepository productRepository;
 
     @Override
