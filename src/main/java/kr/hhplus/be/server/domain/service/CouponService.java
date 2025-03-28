@@ -1,5 +1,6 @@
 package kr.hhplus.be.server.domain.service;
 
+import kr.hhplus.be.server.interfaces.dto.request.CouponRequest;
 import kr.hhplus.be.server.interfaces.dto.response.CouponResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -34,7 +35,7 @@ public class CouponService {
         ));
     }
 
-    public ResponseEntity<Boolean> createCoupon(Long userId, String couponCode) {
+    public ResponseEntity<Boolean> createCoupon(CouponRequest couponRequest) {
         return ResponseEntity.ok(true);
     }
 

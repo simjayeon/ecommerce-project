@@ -1,9 +1,8 @@
 package kr.hhplus.be.server.interfaces.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import kr.hhplus.be.server.domain.service.CouponService;
+import kr.hhplus.be.server.interfaces.dto.request.CouponRequest;
 import kr.hhplus.be.server.interfaces.dto.response.CouponResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -30,11 +29,10 @@ public class CouponController {
         return couponService.getUserCoupons(userId);
     }
 
-    @PostMapping("/{userId}")
+    @PostMapping("")
     @Operation(summary = "createCoupon", description = "쿠폰 생성")
-    public ResponseEntity<Boolean> createCoupon(@PathVariable Long userId,
-                                                @RequestParam String couponCode) {
-        return couponService.createCoupon(userId, couponCode);
+    public ResponseEntity<Boolean> createCoupon(@RequestBody CouponRequest couponRequest) {
+        return couponService.createCoupon(couponRequest);
     }
 
 }
