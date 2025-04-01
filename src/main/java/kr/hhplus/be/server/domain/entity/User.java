@@ -8,6 +8,7 @@ import lombok.*;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
+@Builder
 @Getter
 @Setter
 @AllArgsConstructor
