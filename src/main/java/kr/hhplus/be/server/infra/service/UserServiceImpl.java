@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
         return ResponseEntity.ok().body(Map.of("token", token));
     }
 
-    private void validateAuthRequest(@Valid BindingResult bindingResult) {
+    private void validateAuthRequest(BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             String errorMessages = bindingResult.getAllErrors().stream()
                     .map(DefaultMessageSourceResolvable::getDefaultMessage)

@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/users")
@@ -29,7 +28,8 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody @Valid LoginRequest loginRequest, BindingResult bindingResult) {
+    public ResponseEntity<?> login(@RequestBody @Valid LoginRequest loginRequest,
+                                   BindingResult bindingResult) {
         return userService.loginUser(loginRequest, bindingResult);
     }
 }
